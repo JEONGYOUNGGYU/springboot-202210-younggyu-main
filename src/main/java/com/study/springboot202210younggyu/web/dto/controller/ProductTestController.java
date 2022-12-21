@@ -1,4 +1,4 @@
-package com.study.springboot202210younggyu.web.controller;
+package com.study.springboot202210younggyu.web.dto.controller;
 
 import com.study.springboot202210younggyu.web.dto.ProductDto;
 import org.springframework.stereotype.Controller;

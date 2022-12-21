@@ -35,4 +35,5 @@
     where
         category_id = #{categoryId}
     </update>
+
 </mapper>
