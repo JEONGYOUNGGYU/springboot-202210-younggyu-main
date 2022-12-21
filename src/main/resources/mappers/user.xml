@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.springboot202210younggyu.service.repository.UserRepository">       <!--userRepository.java랑 연동 <mapper>를 쓰면</mapper> !-->
+    <insert id="saveUser" parameterType="com.study.springboot202210younggyu.web.dto.UserDto"
+    useGeneratedKeys="true" keyProperty="userId">  <!-- @mapper 해놓은 interface의 saveUser랑 같아야한다  id와 매개변수가 같아야한다!-->
+    <!-- -->
+        insert into user_mst
+        values
+        (0, #{username}, #{password}, #{name}, #{email})
+    </insert>
+
+    <select id="findUserByUserId" parameterType="integer" resultType="com.study.springboot202210younggyu.web.dto.UserDto">
+        select
+            user_id as userId,
+            username,
+            password,
+            name,
+            email
+        from
+            user_mst
+        where
+            user_id = #{userId}
+    </select>
+
+    <insert id="saveOption" parameterType="com.study.springboot202210younggyu.web.dto.CategoryDto"
+     useGeneratedKeys="true" keyProperty="category_id">
+        insert into category_mst
+        values
+        (0, #{category_name})
+    </insert>
+
+    <select id="findCategoryId" parameterType="integer" resultType="com.study.springboot202210younggyu.web.dto.CategoryDto">
+        select
+            category_id as categoryId,
+            category_name as categoryName
+        from
+            category_mst
+        where
+            category_id = #{category_id}
+    </select>
+</mapper>
