@@ -48,6 +48,10 @@
         .register-text:focus {
             box-shadow: 0px 0px 10px 1px #dbdbdb;
         }
+
+        .success {
+            border: 3px solid #00dd4d;
+        }
         .error-msg {
             color : rgb(255, 73, 23);
             font-size: 11px;
@@ -102,8 +106,8 @@
 
 
     <script>
-        class RegisterApi {
-            #instance = null;
+        class RegisterApi {                                      //<!-- class가 젤 처음 시작--!>
+            static #instance = null;                            //<!-- # = private 자신의 클래스 안에서만 사용 가능 그 외 사용불가능--!>
             static getInstance() {
                 if(this.#instance == null) {
                     this.#instance = new RegisterApi();
@@ -129,18 +133,24 @@
             }
 
             duplicateUsername(username) {
+
+                const usernameInput = document.querySelectorAll(".register-text")[0];
+                const usernameError = document.querySelectorAll(".error-msg")[0];
+                
                 $.ajax({
                     async: false,
                     type: "get",
                     url: "/api/account/username",
-                    contentType: "application/json",
-                    data: JSON.stringify({"username": username}),
+                    data: {"username": username},
                     dataType: "json",
                     success: (response) => {
-                        
+                        usernameInput.classList.add("success");
+                        usernameError.textContent = "";
                     },
                     error: (errorResponse) => {
-
+                        console.log(errorResponse);
+                        usernameInput.classList.remove("success");
+                        usernameError.textContent = errorResponse.responseJSON.date.duplicate;
                     }
                 });
             }
@@ -158,8 +168,8 @@
 
             addEventToUsernameInput(){
                 const usernameInput = document.querySelectorAll(".register-text")[0];
+
                 usernameInput.onblur = () => {
-                    alert("중복확인 요청")
                     RegisterApi.getInstance().duplicateUsername(usernameInput.value);
                 }
             }   
@@ -167,9 +177,12 @@
 
         }
 
-        window.onload = () => {
+        window.onload = () => {                                                //<!-- 이건 함수 정의 --!>
             RegisterService.getInstance().addEventToUsernameInput();
-        }
+        }              //<!-- static이라 ↑이때 함수(getInstance()) 호출 가능 --!>
+
+
+    window.onload(); // <--! < 이게 함수 호출--!>
     </script>
 </body>
 </html>
