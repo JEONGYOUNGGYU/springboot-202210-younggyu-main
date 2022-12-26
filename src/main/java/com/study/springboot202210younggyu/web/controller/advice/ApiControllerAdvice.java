@@ -1,4 +1,4 @@
-package com.study.springboot202210younggyu.web.dto.controller.advice;
+package com.study.springboot202210younggyu.web.controller.advice;
 
 
 import com.study.springboot202210younggyu.web.dto.CMRespDto;

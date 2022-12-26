@@ -1,4 +1,4 @@
-package com.study.springboot202210younggyu.service.repository;
+package com.study.springboot202210younggyu.repository;
 
 import com.study.springboot202210younggyu.web.dto.CategoryDto;
 import org.apache.ibatis.annotations.Mapper;

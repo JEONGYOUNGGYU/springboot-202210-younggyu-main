@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.study.springboot202210younggyu.service.repository.UserRepository">       <!--userRepository.java랑 연동 <mapper>를 쓰면</mapper> !-->
+<mapper namespace="com.study.springboot202210younggyu.repository.UserRepository">       <!--userRepository.java랑 연동 <mapper>를 쓰면</mapper> !-->
     <insert id="saveUser" parameterType="com.study.springboot202210younggyu.web.dto.UserDto"
     useGeneratedKeys="true" keyProperty="userId">  <!-- @mapper 해놓은 interface의 saveUser랑 같아야한다  id와 매개변수가 같아야한다!-->
     <!-- -->

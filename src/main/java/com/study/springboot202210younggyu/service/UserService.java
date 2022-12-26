@@ -1,7 +1,6 @@
 package com.study.springboot202210younggyu.service;
 
-import com.fasterxml.jackson.core.JsonPointer;
-import com.study.springboot202210younggyu.service.repository.UserRepository;
+import com.study.springboot202210younggyu.repository.UserRepository;
 import com.study.springboot202210younggyu.web.dto.UserDto;
 import com.study.springboot202210younggyu.web.exception.CustomDuplicateUsernameException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +36,7 @@ public class UserService {
         UserDto userDto = userRepository.findUserByUsername(username);
         if(userDto != null){
             Map<String, String> errorMap = new HashMap<>();
-            errorMap.put("duplicate", "이미 존재하는 사용자이름 입니다.");
+            errorMap.put("username", "이미 존재하는 사용자이름 입니다.");
             throw new CustomDuplicateUsernameException("Duplicate username!!!", errorMap);
         }
 

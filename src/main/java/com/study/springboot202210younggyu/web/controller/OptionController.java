@@ -1,4 +1,4 @@
-package com.study.springboot202210younggyu.web.dto.controller;
+package com.study.springboot202210younggyu.web.controller;
 
 import com.study.springboot202210younggyu.service.OptionService;
 import com.study.springboot202210younggyu.web.dto.CategoryDto;

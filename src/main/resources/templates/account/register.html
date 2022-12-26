@@ -50,7 +50,7 @@
         }
 
         .success {
-            border: 3px solid #00dd4d;
+            border: 1px solid #00dd4d;
         }
         .error-msg {
             color : rgb(255, 73, 23);
@@ -124,10 +124,10 @@
                     data: JSON.stringify(user),
                     dataType: "json",
                     success: (response) => {
-                        
+                        console.log(response);
                     },
                     error: (errorResponse) => {
-
+                        console.log(errorResponse);
                     }
                 });
             }
@@ -150,7 +150,7 @@
                     error: (errorResponse) => {
                         console.log(errorResponse);
                         usernameInput.classList.remove("success");
-                        usernameError.textContent = errorResponse.responseJSON.date.duplicate;
+                        usernameError.innerHTML = errorResponse.responseJSON.data.username;
                     }
                 });
             }
@@ -174,15 +174,29 @@
                 }
             }   
 
+            addEventToRegisterButton(){
+                const registerButton = document.querySelector(".register-button")
+                registerButton.onclick = () => {
+                    const registerInputs = document.querySelectorAll(".register-text");
+                    const user = {
+                        username: registerInputs[0].value,
+                        password: registerInputs[1].value,
+                        name: registerInputs[2].value,
+                        email: registerInputs[3].value
+                    }
+                    RegisterApi.getInstance().registrationUser(user);
+                }
+            }
 
         }
 
         window.onload = () => {                                                //<!-- 이건 함수 정의 --!>
             RegisterService.getInstance().addEventToUsernameInput();
+            RegisterService.getInstance().addEventToRegisterButton();
         }              //<!-- static이라 ↑이때 함수(getInstance()) 호출 가능 --!>
 
 
-    window.onload(); // <--! < 이게 함수 호출--!>
+    //window.onload(); // <--! < 이게 함수 호출--!>
     </script>
 </body>
 </html>

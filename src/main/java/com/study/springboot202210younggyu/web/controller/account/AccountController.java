@@ -1,4 +1,4 @@
-package com.study.springboot202210younggyu.web.dto.controller.account;
+package com.study.springboot202210younggyu.web.controller.account;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

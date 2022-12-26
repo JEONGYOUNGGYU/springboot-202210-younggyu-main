@@ -1,6 +1,6 @@
 package com.study.springboot202210younggyu.service;
 
-import com.study.springboot202210younggyu.service.repository.OptionRepository;
+import com.study.springboot202210younggyu.repository.OptionRepository;
 import com.study.springboot202210younggyu.web.dto.CategoryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

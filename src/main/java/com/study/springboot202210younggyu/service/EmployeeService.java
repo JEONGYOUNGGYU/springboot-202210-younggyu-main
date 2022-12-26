@@ -1,6 +1,6 @@
 package com.study.springboot202210younggyu.service;
 
-import com.study.springboot202210younggyu.service.repository.EmployeeRepository;
+import com.study.springboot202210younggyu.repository.EmployeeRepository;
 import com.study.springboot202210younggyu.web.dto.EmpDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
