@@ -8,15 +8,16 @@
 </head>
 <body>
     <script>
-        const test = () => {
-            alert("테스트 호출")
+        const user = {
+            username: "test",
+            password: "1234",
+            name: "김준일",
         }
+        Object.keys(user).forEach(key => {
+            console.log(user)
 
-        const abc = test;
-
-        test();
-
-        abc();
+        })
+       
     </script>
 </body>
 </html>
